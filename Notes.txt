@@ -1,0 +1,98 @@
+Ubuntu pwd:ubuntu11
+
+
+C:\Users\vishw\OneDrive\Documents\AWS Learning
+
+pem file location:
+/mnt/c/users/vishw/downloads
+
+
+docker version:
+
+To look at the docker processes:
+ps -ef | grep [d]ocker
+docker images
+docker ps -a => for containers
+
+docker run --rm:latest /bin/echo "Hello Docker"
+
+docker rm name <tab>
+
+In the container
+docker run -it --rm busybox:/latest
+
+docker run -d centos tail -f /dev/null
+-d - detached mode - container will contiue to execute after the command is over
+creating a prcess in which process id 1 will never exit
+
+ps -ef | grep[d]ocker
+- to list the processes running in docker
+sudo kill -9 4048 (process id)
+
+get into container:
+docker exec -it nervous_right bash
+to run ssh commands in the centos in the container instance
+
+docker rmi imageid - to remove an image
+docker stop <container id> - if the image delete fails, remove container
+
+docker rmi -f <image ID> - remove the images forcefully
+docker rm <container name1> <container name2>
+
+Questiion:
+I am not able to find the location for the aufs library after installing docker
+Where can i find it in the docker location below?
+
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+ubuntu@ip-172-31-44-85:/var/lib/docker$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+docker/whalesay     latest              6b362a9f73eb        4 years ago         247MB
+ubuntu@ip-172-31-44-85:/var/lib/docker$ sudo ls -al /var/lib/docker/aufs/layers
+ls: cannot access '/var/lib/docker/aufs/layers': No such file or directory
+
+ubuntu@ip-172-31-44-85:/var/lib/docker$ sudo ls -al /var/lib/docker
+total 56
+drwx--x--x 14 root root 4096 Dec 25 16:52 .
+drwxr-xr-x 44 root root 4096 Dec 25 16:52 ..
+drwx------  2 root root 4096 Dec 25 16:52 builder
+drwx------  4 root root 4096 Dec 25 16:52 buildkit
+drwx------  2 root root 4096 Dec 25 17:47 containers
+drwx------  3 root root 4096 Dec 25 16:52 image
+drwxr-x---  3 root root 4096 Dec 25 16:52 network
+drwx------ 13 root root 4096 Dec 25 17:47 overlay2
+drwx------  4 root root 4096 Dec 25 16:52 plugins
+drwx------  2 root root 4096 Dec 25 16:52 runtimes
+drwx------  2 root root 4096 Dec 25 16:52 swarm
+drwx------  2 root root 4096 Dec 25 17:42 tmp
+drwx------  2 root root 4096 Dec 25 16:52 trust
+drwx------  2 root root 4096 Dec 25 16:52 volumes
+
+wget https://storage.googleapis.com/skl-training/docker/smart_finance.tar.gz
+
+
+docker build -t helloworld .
+
+docker tag local-image:tagname new-repo:tagname
+docker tag helloworld:latest vishwagopal11/hello_world:version1
+
+docker push new-repo:tagname
+docker push vishwagopal11/hello_world:version1
+
+docker pull vishwagopal11/hello_world:version2
+vishwagopal11/hello_world:version2
+
+
+Big data Links:
+--------------
+https://www.wandisco.com/resource-library/use-cases/playtika
+https://aws.amazon.com/getting-started/projects/analyze-big-data/
+https://aws.amazon.com/big-data/getting-started/tutorials/
+https://www.wandisco.com/resource-library/use-cases/playtika
+https://aws.amazon.com/getting-started/projects/analyze-big-data/
+https://aws.amazon.com/big-data/getting-started/tutorials/
+
+
+https://www.wandisco.com/resource-library/use-cases/playtika
+https://aws.amazon.com/getting-started/projects/analyze-big-data/
+https://aws.amazon.com/big-data/getting-started/tutorials/
+https://www.qwiklabs.com/
